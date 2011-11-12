@@ -7,6 +7,7 @@ struct MaterialData
 	float *specular;
 	float *shininess;
 	float *translate;
+	float *ambient;
 };
 
 #endif

@@ -1,7 +1,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere(float *diffuse, float *specular,
-								float *shininess, float *translate)
+								float *shininess, float *translate, float *ambient)
 {
 	int i;
 	this->data.diffuse = (float *)malloc(4 * sizeof(float));
@@ -10,12 +10,14 @@ Sphere::Sphere(float *diffuse, float *specular,
 	// fit the array from the lab5.cpp file.
 	this->data.shininess = (float *)malloc(4 * sizeof(float));
 	this->data.translate = (float *)malloc(4 * sizeof(float));
-	for(i = 0; i < 4; i++)
+	this->data.ambient = (float *)malloc(4 * sizeof(float));
+	for(i = 0; i < 5; i++)
 	{
 		this->data.diffuse[i] = diffuse[i];
 		this->data.specular[i] = specular[i];
 		this->data.shininess[i] = shininess[i];
 		this->data.translate[i] = translate[i];
+		this->data.ambient[i] = ambient[i];
 	}
 	return;
 }
@@ -26,6 +28,7 @@ Sphere::~Sphere()
 	free(this->data.specular);
 	free(this->data.shininess);
 	free(this->data.translate);
+	free(this->data.ambient);
 	return;
 }
 
@@ -37,6 +40,7 @@ void Sphere::draw(void)
   glMaterialfv(GL_FRONT, GL_DIFFUSE, this->data.diffuse);
   glMaterialfv(GL_FRONT, GL_SPECULAR, this->data.specular);
   glMaterialfv(GL_FRONT, GL_SHININESS, this->data.shininess);
+  glLightModelfv( GL_LIGHT_MODEL_AMBIENT, this->data.ambient );
   glutSolidSphere( 1.0, 40, 40 );
   glPopMatrix();
 	return;

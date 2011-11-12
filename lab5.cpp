@@ -34,14 +34,21 @@ void myInit()
    glShadeModel(GL_SMOOTH);
 
    // Define light source
-   GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
-   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+   GLfloat light_position0[] = { 0.0, 1.0, 1.0, 0.0 };
+   glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
+
+   // Define light source
+   GLfloat light_position1[] = { -1.0, -1.0, 1.0, 1.0 };
+   glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
 
    // Enable lighting model
    glEnable(GL_LIGHTING);
 
    // Enable light 0
    glEnable(GL_LIGHT0);
+
+   // Enable light 1
+   glEnable(GL_LIGHT1);
 }
 
 void myDraw()
@@ -52,60 +59,81 @@ void myDraw()
    // Material properties
 	float data[][4] = {// First sphere
 										 // Diffuse                 Specular
-										 { 1.0, 0.0, 0.0, 1.0 },  { 0.3, 0.3, 0.3, 1.0 },
+										 { 0.0, 0.0, 0.0, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 10.0, 0.0, 0.0, 0.0 }, { -9.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 { 1000.0, 0.0, 0.0, 0.0 }, { -9.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.5, 0.5, 0.5, 0.0},
 										 // Second sphere
 										 // Diffuse                 Specular
 										 { 0.0, 1.0, 0.0, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 200.0, 0.0, 0.0, 0.0 }, { -7.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Third sphere
 										 // Diffuse                 Specular
 										 { 0.0, 0.0, 1.0, 1.0 },  { 0.5, 0.5, 0.5, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 100.0, 0.0, 0.0, 0.0 }, { -5.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Fourth sphere
 										 // Diffuse                 Specular
 										 { 0.0, 1.0, 1.0, 1.0 },  { 0.3, 0.3, 0.3, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 50.0, 0.0, 0.0, 0.0 }, { -3.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Fifth sphere
 										 // Diffuse                 Specular
 										 { 1.0, 1.0, 0.0, 1.0 },  { 1.0, 0.5, 0.5, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 75.0, 0.0, 0.0, 0.0 }, { -1.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Sixth sphere
 										 // Diffuse                 Specular
 										 { 1.0, 0.0, 1.0, 1.0 },  { 0.0, 1.0, 0.0, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 25.0, 0.0, 0.0, 0.0 }, { 1.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Seventh sphere
 										 // Diffuse                 Specular
 										 { 1.0, 1.0, 1.0, 1.0 },  { 1.0, 0.0, 0.0, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 50.0, 0.0, 0.0, 0.0 }, { 3.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Eighth sphere
 										 // Diffuse                 Specular
 										 { 0.1, 0.1, 0.1, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 150.0, 0.0, 0.0, 0.0 }, { 5.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Ninth sphere
 										 // Diffuse                 Specular
 										 { 0.5, 0.5, 0.5, 1.0 },  { 1.0, 0.5, 0.0, 1.0 },
 										 // Shininess               Translation
 			 	 	 	 	 	 	 	 { 100.0, 0.0, 0.0, 0.0 }, { 7.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0},
 										 // Tenth sphere
 										 // Diffuse                 Specular
 										 { 1.0, 0.0, 0.0, 1.0 },  { 0.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 250.0, 0.0, 0.0, 0.0 }, { 9.0, 0.0, 0.0, 0.0 }
+			 	 	 	 	 	 	 	 { 250.0, 0.0, 0.0, 0.0 }, { 9.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 // Ambient
+			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.0, 0.0}
 										};
 
   for(int i = 0; i < 10; i++)
   {
-  	j = i * 4;
-  	sphere = new Sphere(data[j], data[j + 1], data[j + 2], data[j + 3]);
+  	j = i * 5;
+  	sphere = new Sphere(data[j], data[j + 1], data[j + 2],
+  										  data[j + 3], data[j + 4]);
   	sphere->draw();
   	delete sphere; // This object is only temporary
   }

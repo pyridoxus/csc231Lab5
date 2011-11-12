@@ -7,7 +7,8 @@
 class Sphere
 {
 	public:
-		Sphere(float *diffuse, float *specular, float *shininess, float *translate);
+		Sphere(float *diffuse, float *specular, float *shininess,
+					 float *translate, float *ambient);
 		virtual ~Sphere();
 		void draw(void);
 	private:
