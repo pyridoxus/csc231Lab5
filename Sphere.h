@@ -1,15 +1,16 @@
 #ifndef SPHERE_H_
 #define SPHERE_H_
+#include "MaterialData.h"
+#include <stdlib.h>
 
 class Sphere
 {
 	public:
-		Sphere(GLdouble radius, GLint slices, GLint stacks);
+		Sphere(float *diffuse, float *specular, float *shininess, float *translate);
 		virtual ~Sphere();
-		void setDiffuse(float *data);
-		void setSpecular(float *data);
-		void setShininess(float *data);
-		void translate(float x, float y, float z);
+		void draw(void);
+	private:
+		MaterialData data;
 };
 
 #endif

@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../Sphere.cpp \
 ../example.cpp 
 
 OBJS += \
+./Sphere.o \
 ./example.o 
 
 CPP_DEPS += \
+./Sphere.d \
 ./example.d 
 
 
