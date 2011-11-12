@@ -5,15 +5,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Sphere.cpp \
-../example.cpp 
+../lab5.cpp 
 
 OBJS += \
 ./Sphere.o \
-./example.o 
+./lab5.o 
 
 CPP_DEPS += \
 ./Sphere.d \
-./example.d 
+./lab5.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

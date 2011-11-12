@@ -2,6 +2,7 @@
 #define SPHERE_H_
 #include "MaterialData.h"
 #include <stdlib.h>
+#include <GL/glut.h>
 
 class Sphere
 {
