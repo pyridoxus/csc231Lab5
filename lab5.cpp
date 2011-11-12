@@ -23,10 +23,10 @@ void myInit()
 {
    glMatrixMode( GL_PROJECTION );
    glLoadIdentity();
-   gluPerspective( 45.0, 1280.0 / 256.0, 0.01, 10000.0 );
+   gluPerspective( 10.0, 1280.0 / 256.0, 0.01, 10000.0 );
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
-   glTranslatef( 0, 0, -5 );
+   glTranslatef( 0, 0, -25 );
    glClearColor( 0.0, 0.0, 0.0, 0.0 );
    glEnable( GL_DEPTH_TEST );
 
@@ -52,17 +52,57 @@ void myDraw()
    // Material properties
 	float data[][4] = {// First sphere
 										 // Diffuse                 Specular
-										 { 0.9, 0.6, 0.9, 1.0 },  { 0.9, 0.9, 0.9, 1.0 },
+										 { 1.0, 0.0, 0.0, 1.0 },  { 0.3, 0.3, 0.3, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 40.0, 0.0, 0.0, 0.0 }, { -1.0, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 { 10.0, 0.0, 0.0, 0.0 }, { -9.0, 0.0, 0.0, 0.0 },
 										 // Second sphere
 										 // Diffuse                 Specular
-										 { 0.3, 0.7, 0.8, 1.0 },  { 0.87, 0.85, 0.8, 1.0 },
+										 { 0.0, 1.0, 0.0, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 120.0, 0.0, 0.0, 0.0 }, { 1.0, 0.0, 0.0, 0.0 }
+			 	 	 	 	 	 	 	 { 200.0, 0.0, 0.0, 0.0 }, { -7.0, 0.0, 0.0, 0.0 },
+										 // Third sphere
+										 // Diffuse                 Specular
+										 { 0.0, 0.0, 1.0, 1.0 },  { 0.5, 0.5, 0.5, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 100.0, 0.0, 0.0, 0.0 }, { -5.0, 0.0, 0.0, 0.0 },
+										 // Fourth sphere
+										 // Diffuse                 Specular
+										 { 0.0, 1.0, 1.0, 1.0 },  { 0.3, 0.3, 0.3, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 50.0, 0.0, 0.0, 0.0 }, { -3.0, 0.0, 0.0, 0.0 },
+										 // Fifth sphere
+										 // Diffuse                 Specular
+										 { 1.0, 1.0, 0.0, 1.0 },  { 1.0, 0.5, 0.5, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 75.0, 0.0, 0.0, 0.0 }, { -1.0, 0.0, 0.0, 0.0 },
+										 // Sixth sphere
+										 // Diffuse                 Specular
+										 { 1.0, 0.0, 1.0, 1.0 },  { 0.0, 1.0, 0.0, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 25.0, 0.0, 0.0, 0.0 }, { 1.0, 0.0, 0.0, 0.0 },
+										 // Seventh sphere
+										 // Diffuse                 Specular
+										 { 1.0, 1.0, 1.0, 1.0 },  { 1.0, 0.0, 0.0, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 50.0, 0.0, 0.0, 0.0 }, { 3.0, 0.0, 0.0, 0.0 },
+										 // Eighth sphere
+										 // Diffuse                 Specular
+										 { 0.1, 0.1, 0.1, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 150.0, 0.0, 0.0, 0.0 }, { 5.0, 0.0, 0.0, 0.0 },
+										 // Ninth sphere
+										 // Diffuse                 Specular
+										 { 0.5, 0.5, 0.5, 1.0 },  { 1.0, 0.5, 0.0, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 100.0, 0.0, 0.0, 0.0 }, { 7.0, 0.0, 0.0, 0.0 },
+										 // Tenth sphere
+										 // Diffuse                 Specular
+										 { 1.0, 0.0, 0.0, 1.0 },  { 0.0, 1.0, 1.0, 1.0 },
+										 // Shininess               Translation
+			 	 	 	 	 	 	 	 { 250.0, 0.0, 0.0, 0.0 }, { 9.0, 0.0, 0.0, 0.0 }
 										};
 
-  for(int i = 0; i < 2; i++)
+  for(int i = 0; i < 10; i++)
   {
   	j = i * 4;
   	sphere = new Sphere(data[j], data[j + 1], data[j + 2], data[j + 3]);
