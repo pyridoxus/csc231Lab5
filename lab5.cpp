@@ -64,14 +64,14 @@ void myDraw()
 										 // Diffuse                 Specular
 										 { 0.0, 0.0, 0.0, 1.0 },  { 1.0, 1.0, 1.0, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 512.0, 0.0, 0.0, 0.0 }, { -9.5, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 { 200.0, 0.0, 0.0, 0.0 }, { -9.5, 0.0, 0.0, 0.0 },
 			 	 	 	 	 	 	 	 // Ambient
 			 	 	 	 	 	 	 	 { 0.05, 0.05, 0.05, 0.0},
 										 // Second sphere
 										 // Diffuse                 Specular
 			 	 	 	 	 	 	 	 { 0.0, 0.0, 0.1, 1.0 },  { 0.93, 0.93, 0.95, 1.0 },
 										 // Shininess               Translation
-			 	 	 	 	 	 	 	 { 256.0, 0.0, 0.0, 0.0 }, { -7.4, 0.0, 0.0, 0.0 },
+			 	 	 	 	 	 	 	 { 150.0, 0.0, 0.0, 0.0 }, { -7.4, 0.0, 0.0, 0.0 },
 			 	 	 	 	 	 	 	 // Ambient
 			 	 	 	 	 	 	 	 { 0.1, 0.1, 0.1, 0.0},
 										 // Third sphere
@@ -141,7 +141,9 @@ void myDraw()
   	delete sphere; // This object is only temporary
   }
 
-   glutSwapBuffers();
+//  glutSolidTeapot(1.0);
+
+  glutSwapBuffers();
 }
 
 // Keyboard callback
